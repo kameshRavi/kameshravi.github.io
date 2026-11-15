@@ -1,0 +1,136 @@
+---
+import Base from '../layouts/Base.astro';
+import { getPosts } from '../posts';
+
+const posts = await getPosts();
+const published = posts.filter((p) => !p.data.draft).length;
+---
+
+<Base description="Kameshwaran Ravichandran is a frontend platform engineer in Chennai with ten years in performance, accessibility and architecture, now building agentic systems.">
+  <section class="hero">
+    <h1>Frontend platform engineer.</h1>
+    <div class="hero-mid">
+      <p class="lead">
+        I’m Kameshwaran Ravichandran, a Lead Engineer with 10+ years of experience driving end-to-end web
+        architecture. I turn complex business challenges into fast, accessible, and scalable products that move key
+        metrics.
+      </p>
+      <ol class="career" aria-label="Career">
+        <li><span class="yr">2012</span><b>B.Tech</b>Sathyabama University</li>
+        <li><span class="yr">2017</span><b>FULL Creative</b>Senior Software Engineer, Module Lead</li>
+        <li><span class="yr">2026</span><b>Clarity RCM</b>Lead Frontend Engineer</li>
+      </ol>
+    </div>
+    <div class="tb">
+      <dl>
+        <div><dt class="k">Name</dt><dd>Kameshwaran Ravichandran</dd></div>
+        <div><dt class="k">Role</dt><dd>Lead Frontend Engineer, Clarity RCM</dd></div>
+        <div><dt class="k">Location</dt><dd>Chennai, India</dd></div>
+        <div><dt class="k">Records</dt><dd><a href="#writing">{published} published</a></dd></div>
+      </dl>
+      <a class="tb-cta" href="mailto:kameshwaran.ravichandran@gmail.com">
+        Get in touch
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M3 14h21M16 6l8 8-8 8" /></svg>
+      </a>
+    </div>
+  </section>
+
+  <section id="experience" aria-labelledby="experience-h">
+    <h2 id="experience-h">Experience</h2>
+    <dl class="timeline">
+      <div>
+        <dt>Oct 2026 – Present</dt>
+        <dd>
+          <h3>Lead Frontend Engineer</h3>
+          <p class="org">Clarity RCM</p>
+          <ul>
+            <li>Building agentic systems and the frontends people use them through.</li>
+          </ul>
+        </dd>
+      </div>
+      <div>
+        <dt>Mar 2017 – Sep 2026</dt>
+        <dd>
+          <h3>Senior Software Engineer, Module Lead</h3>
+          <p class="org">FULL Creative</p>
+          <ul>
+            <li>
+              Designed a <a href="/writing/micro-frontends-for-cross-selling/">micro-frontend platform</a> that composes
+              10+ products across 10+ brands at runtime, on web and in the mobile app.
+            </li>
+            <li>
+              Helped design and build a <a href="/writing/graphql-bff-data-cache/">GraphQL BFF</a> for a landing page
+              that serves millions of requests a day.
+            </li>
+            <li>
+              Built and maintained a design system (Storybook, Floating UI, Tailwind CSS, Changesets) shared by 3+
+              product teams, which raised delivery speed by 40%.
+            </li>
+            <li>Built a customer portal that cut support tickets by 25%.</li>
+            <li>
+              Shipped a Jira-to-PR agentic workflow that reproduces a defect, fixes it test-first and opens the pull
+              request.
+            </li>
+            <li>
+              Published <a href="https://github.com/kameshRavi/react-taggle-input">react-taggle-input</a>, an open-source
+              React tag input.
+            </li>
+          </ul>
+        </dd>
+      </div>
+    </dl>
+  </section>
+
+  <section id="education" aria-labelledby="education-h">
+    <h2 id="education-h">Education</h2>
+    <dl class="timeline">
+      <div>
+        <dt>2012 – 2016</dt>
+        <dd>
+          <h3>B.Tech, Information Technology</h3>
+          <p class="org">Sathyabama University, Chennai</p>
+        </dd>
+      </div>
+    </dl>
+  </section>
+
+  <section id="writing" aria-labelledby="writing-h">
+    <h2 id="writing-h">Writing</h2>
+    <p class="intro-line">Decision records from projects I worked on: the problem, the options, what we chose and what I did.</p>
+    <ol class="records">
+      {
+        posts.map((post) => (
+          <li>
+            <div>
+              <h3>
+                <a href={`/writing/${post.id}/`}>{post.data.title}</a>
+                {post.data.personal && <span class="draft">Personal</span>}
+                {post.data.draft && <span class="draft">Draft</span>}
+              </h3>
+              <p>{post.data.summary}</p>
+            </div>
+            <p class="meta">{post.data.stack.join(' · ')}</p>
+          </li>
+        ))
+      }
+    </ol>
+  </section>
+
+  <section id="contact" class="contact" aria-labelledby="contact-h">
+    <h2 id="contact-h">Contact</h2>
+    <ul>
+      <li>
+        <span class="k">Email</span>
+        <a href="mailto:kameshwaran.ravichandran@gmail.com">kameshwaran.ravichandran@gmail.com</a>
+      </li>
+      <li>
+        <span class="k">LinkedIn</span>
+        <a href="https://www.linkedin.com/in/kameshwaran-ravichandran/">linkedin.com/in/kameshwaran-ravichandran</a>
+      </li>
+      <li>
+        <span class="k">GitHub</span>
+        <a href="https://github.com/kameshRavi">github.com/kameshRavi</a>
+      </li>
+    </ul>
+  </section>
+</Base>

@@ -1,0 +1,34 @@
+---
+import { render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import { getPosts } from '../../posts';
+
+export async function getStaticPaths() {
+  const posts = await getPosts();
+  return posts.map((post, i) => ({
+    params: { id: post.id },
+    props: { post, next: posts[(i + 1) % posts.length] },
+  }));
+}
+
+const { post, next } = Astro.props;
+const { Content } = await render(post);
+---
+
+<Base title={post.data.title} description={post.data.summary} type="article">
+  <article class="post">
+    <h1>{post.data.title}</h1>
+    <p class="summary">{post.data.summary}</p>
+    <dl class="record-head">
+      <div><dt>My part</dt><dd>{post.data.role}</dd></div>
+      <div><dt>Stack</dt><dd>{post.data.stack.join(' · ')}</dd></div>
+      {post.data.personal && <div><dt>Type</dt><dd>Personal project</dd></div>}
+      {post.data.draft && <div><dt>Status</dt><dd>Draft</dd></div>}
+    </dl>
+    <div class="prose"><Content /></div>
+    <nav class="post-nav" aria-label="More writing">
+      <a href="/#writing">All writing</a>
+      {next.id !== post.id && <a href={`/writing/${next.id}/`}>Next: {next.data.title}</a>}
+    </nav>
+  </article>
+</Base>

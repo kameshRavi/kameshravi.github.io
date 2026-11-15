@@ -1,0 +1,135 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-15T20:30:00+05:30",
+  "title": "Design System: Kameshwaran Ravichandran",
+  "extensions": {
+    "colorMeta": {
+      "sheet": { "role": "neutral", "displayName": "Drafting White", "canonical": "#fafaf7", "tonalRamp": ["oklch(15% 0.004 100)", "oklch(28% 0.005 100)", "oklch(42% 0.006 100)", "oklch(56% 0.006 100)", "oklch(70% 0.006 100)", "oklch(82% 0.005 100)", "oklch(91% 0.004 100)", "oklch(98% 0.004 100)"] },
+      "ink": { "role": "neutral", "displayName": "Line Ink", "canonical": "#0b0b0b", "tonalRamp": ["oklch(15% 0 0)", "oklch(27% 0 0)", "oklch(39% 0 0)", "oklch(51% 0 0)", "oklch(63% 0 0)", "oklch(75% 0 0)", "oklch(86% 0 0)", "oklch(95% 0 0)"] },
+      "mid": { "role": "neutral", "displayName": "Pencil Grey", "canonical": "#55554f", "tonalRamp": ["oklch(15% 0.004 105)", "oklch(27% 0.007 105)", "oklch(39% 0.009 105)", "oklch(51% 0.009 105)", "oklch(63% 0.009 105)", "oklch(75% 0.008 105)", "oklch(86% 0.006 105)", "oklch(95% 0.004 105)"] },
+      "line": { "role": "primary", "displayName": "Dimension Blue (line)", "canonical": "light-dark(#1456d9, #8fb0ff)", "tonalRamp": ["oklch(15% 0.06 262)", "oklch(27% 0.12 262)", "oklch(38% 0.17 262)", "oklch(49% 0.2 262)", "oklch(61% 0.18 262)", "oklch(74% 0.12 262)", "oklch(86% 0.07 262)", "oklch(95% 0.03 262)"] },
+      "tint": { "role": "neutral", "displayName": "Erased Tint", "canonical": "#eeefe9", "tonalRamp": ["oklch(15% 0.005 115)", "oklch(28% 0.007 115)", "oklch(42% 0.008 115)", "oklch(56% 0.008 115)", "oklch(70% 0.008 115)", "oklch(82% 0.008 115)", "oklch(90% 0.008 115)", "oklch(95% 0.008 115)"] },
+      "cta": { "role": "primary", "displayName": "Dimension Blue (fill)", "canonical": "#1456d9", "tonalRamp": ["oklch(15% 0.06 262)", "oklch(27% 0.12 262)", "oklch(38% 0.17 262)", "oklch(49% 0.2 262)", "oklch(61% 0.18 262)", "oklch(74% 0.12 262)", "oklch(86% 0.07 262)", "oklch(95% 0.03 262)"] },
+      "cta-hover": { "role": "primary", "displayName": "Dimension Blue, hover", "canonical": "#0f47b8" },
+      "cta-active": { "role": "primary", "displayName": "Dimension Blue, pressed", "canonical": "#0b3a99" },
+      "on-cta": { "role": "neutral", "displayName": "White on fill", "canonical": "#ffffff" },
+      "sheet-dark": { "role": "neutral", "displayName": "Inverted Sheet", "canonical": "#0b0b0b" },
+      "ink-dark": { "role": "neutral", "displayName": "Inverted Ink", "canonical": "#f2f2ee" },
+      "mid-dark": { "role": "neutral", "displayName": "Inverted Pencil Grey", "canonical": "#a6a69f" },
+      "line-dark": { "role": "primary", "displayName": "Dimension Blue on black", "canonical": "#8fb0ff" },
+      "tint-dark": { "role": "neutral", "displayName": "Inverted Tint", "canonical": "#181818" }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "The home hero statement only. Runs to 9.375rem by approved exception." },
+      "page-title": { "displayName": "Page title", "purpose": "The h1 of an article and of the not-found page." },
+      "headline": { "displayName": "Headline", "purpose": "Section headings." },
+      "title": { "displayName": "Title", "purpose": "Role titles and record titles." },
+      "lead": { "displayName": "Lead", "purpose": "The hero introduction and an article's summary." },
+      "body": { "displayName": "Body", "purpose": "Running text at a 40rem measure, tabular numerals." },
+      "prose": { "displayName": "Prose", "purpose": "Article body at a 42rem measure." },
+      "value": { "displayName": "Value", "purpose": "The content of a ruled cell." },
+      "label": { "displayName": "Label", "purpose": "The field name over a cell value. Never a kicker." },
+      "code": { "displayName": "Code", "purpose": "Inline code in prose only." }
+    },
+    "shadows": [],
+    "motion": [
+      { "name": "ease", "value": "cubic-bezier(0.16, 1, 0.3, 1)", "purpose": "The load moment and the action arrow's step." },
+      { "name": "settle", "value": "0.8s, opacity 0 and translateY(0.12em) to rest", "purpose": "Hero statement, once on load." },
+      { "name": "draw", "value": "1.1s after 0.25s, clip-path inset(0 100% 0 0) to inset(0)", "purpose": "Dimension line draws left to right, once on load." },
+      { "name": "state", "value": "0.15s", "purpose": "Colour and fill transitions on links, rows and the action cell." }
+    ],
+    "breakpoints": [
+      { "name": "fold", "value": "64rem" },
+      { "name": "single-column", "value": "44rem" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Action Cell",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The one filled action per view, built as a cell of the title block.",
+      "html": "<a class=\"ds-cta\" href=\"#\">Email Kameshwaran<svg width=\"28\" height=\"28\" viewBox=\"0 0 28 28\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\" aria-hidden=\"true\"><path d=\"M3 14h21M16 6l8 8-8 8\"/></svg></a>",
+      "css": ".ds-cta { background: var(--cta); color: #fff; text-decoration: none; font: 600 1.3125rem/1.2 var(--sans); padding: 0.9rem 1.1rem; min-height: 5.75rem; max-width: 16rem; display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; transition: background 0.15s; } .ds-cta svg { flex: none; transition: transform 0.25s var(--ease); } .ds-cta:hover { background: #0f47b8; } .ds-cta:hover svg { transform: translateX(5px); } .ds-cta:active { background: #0b3a99; transform: translateY(2px); } .ds-cta:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }"
+    },
+    {
+      "name": "Title Block",
+      "kind": "custom",
+      "refersTo": "title-block-cell",
+      "description": "Facts in ruled cells: a field label over a value, 1px divisions inside a 2px outline.",
+      "html": "<dl class=\"ds-tb\"><div><dt>Name</dt><dd>Kameshwaran Ravichandran</dd></div><div><dt>Location</dt><dd>Chennai, India</dd></div><div><dt>Records</dt><dd>3 published</dd></div></dl>",
+      "css": ".ds-tb { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 1px; margin: 0; background: var(--ink); border: 2px solid var(--ink); font-family: var(--sans); color: var(--ink); } .ds-tb > div { background: var(--sheet); padding: 0.9rem 1.1rem 1rem; } .ds-tb dt { font-size: 0.8125rem; font-weight: 500; color: var(--mid); margin-bottom: 0.35rem; } .ds-tb dd { margin: 0; font-size: 1.1875rem; font-weight: 600; line-height: 1.25; }"
+    },
+    {
+      "name": "Register Row",
+      "kind": "custom",
+      "refersTo": "record-row",
+      "description": "The writing index: the whole row is the link and fills with the tint on hover.",
+      "html": "<ol class=\"ds-records\"><li><div><h3><a href=\"#\">Micro-frontends for cross-selling</a></h3><p>The problem, the options, what we chose and what I did.</p></div><p class=\"ds-meta\">React · Module Federation</p></li><li><div><h3><a href=\"#\">A GraphQL BFF data cache</a></h3><p>A second record in the register.</p></div><p class=\"ds-meta\">GraphQL · Redis</p></li></ol>",
+      "css": ".ds-records { list-style: none; margin: 0; padding: 0; border: 2px solid var(--ink); font: 1.0625rem/1.6 var(--sans); color: var(--ink); } .ds-records li { position: relative; display: grid; grid-template-columns: 1fr 12rem; gap: 0.5rem 3rem; align-items: center; padding: 1.6rem 1.5rem; border-bottom: 1px solid var(--ink); transition: background 0.15s; } .ds-records li:last-child { border-bottom: 0; } .ds-records li:hover { background: var(--tint); } .ds-records h3 { margin: 0; font-size: 1.5rem; font-weight: 700; line-height: 1.05; letter-spacing: -0.03em; } .ds-records a { color: inherit; text-decoration-color: var(--line); text-decoration-thickness: 0.08em; text-underline-offset: 0.18em; } .ds-records a::after { content: ''; position: absolute; inset: 0; } .ds-records a:hover { color: var(--line); } .ds-records a:focus-visible { outline: 2px solid var(--line); outline-offset: 3px; } .ds-records p { margin: 0.5rem 0 0; } .ds-records .ds-meta { margin: 0; font-size: 0.9375rem; color: var(--mid); }"
+    },
+    {
+      "name": "Dimension Line",
+      "kind": "custom",
+      "description": "A sequence drawn as one blue line with a tick and a bold year at each station.",
+      "html": "<ol class=\"ds-career\"><li><span class=\"ds-yr\">2012</span><b>B.Tech</b>Sathyabama University</li><li><span class=\"ds-yr\">2017</span><b>FULL Creative</b>Senior Software Engineer</li><li><span class=\"ds-yr\">2026</span><b>Clarity RCM</b>Lead Frontend Engineer</li></ol>",
+      "css": ".ds-career { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 5fr 9.75fr max-content; font-family: var(--sans); } .ds-career li { padding: 0 1rem 0 0.75rem; font-size: 0.9375rem; line-height: 1.35; color: var(--mid); } .ds-yr { position: relative; display: block; margin: 0 -1rem 1rem -0.75rem; padding: 0 0 0.6rem 0.75rem; border-bottom: 2px solid var(--line); font-weight: 700; font-size: 1.0625rem; color: var(--ink); font-variant-numeric: tabular-nums; } .ds-yr::after, .ds-career li:last-child .ds-yr::before { content: ''; position: absolute; left: 0; bottom: -10px; width: 2px; height: 18px; background: var(--line); } .ds-career li:last-child .ds-yr::before { left: auto; right: 0; } .ds-career b { display: block; font-size: 1.0625rem; font-weight: 600; color: var(--ink); }"
+    },
+    {
+      "name": "Header Navigation",
+      "kind": "nav",
+      "refersTo": "nav-link",
+      "description": "One header row closed by the 2px sheet edge; text links turn blue on hover.",
+      "html": "<header class=\"ds-header\"><a class=\"ds-name\" href=\"#\">Kameshwaran Ravichandran</a><nav><a href=\"#\">Experience</a><a href=\"#\">Writing</a><a href=\"#\">Contact</a></nav></header>",
+      "css": ".ds-header { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 0 1.5rem; min-height: 4.5rem; border-bottom: 2px solid var(--ink); font-family: var(--sans); color: var(--ink); } .ds-header a { color: inherit; text-decoration: none; min-height: 44px; display: inline-flex; align-items: center; font-size: 1rem; font-weight: 500; transition: color 0.15s; } .ds-header .ds-name { font-size: 1.0625rem; font-weight: 600; } .ds-header nav { display: flex; flex-wrap: wrap; gap: 0 1.75rem; } .ds-header nav a:hover { color: var(--line); } .ds-header a:focus-visible { outline: 2px solid var(--line); outline-offset: 3px; }"
+    },
+    {
+      "name": "Text Link",
+      "kind": "custom",
+      "description": "Ink text with a thin blue underline; the text turns blue on hover.",
+      "html": "<p class=\"ds-p\">Designed a <a class=\"ds-link\" href=\"#\">micro-frontend platform</a> that composes products at runtime.</p>",
+      "css": ".ds-p { font: 1.0625rem/1.6 var(--sans); color: var(--ink); margin: 0; } .ds-link { color: inherit; text-decoration-color: var(--line); text-decoration-thickness: 0.08em; text-underline-offset: 0.18em; transition: color 0.15s; } .ds-link:hover { color: var(--line); } .ds-link:focus-visible { outline: 2px solid var(--line); outline-offset: 3px; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Drawing Sheet",
+    "overview": "The site is an engineering drawing sheet. The claim is lettered large in the field, the facts sit in a title block on the bottom edge, and everything else is line work: ruled blocks, a register of records, a dimension line with end ticks. It is drafting-white paper, black ink and one dimension blue. Nothing is decorated; the structure is the look.\n\nDensity is that of a drawing, not a magazine: a wide sheet (80rem plus gutters), generous section gaps, and facts packed into ruled cells where a reader can find them in a skim. Every surface is flat. Corners are square. The dark theme is the same sheet inverted, not a second design.\n\nThis world replaced a cream, serif, rust-accented editorial page and it also refuses the dark neon developer portfolio. Both rejections are confirmed.",
+    "keyCharacteristics": [
+      "One grotesk (Archivo) for all lettering, field labels included; mono for code only.",
+      "Black line work in two weights: 2px for sheet edges and block outlines, 1px for divisions inside a block.",
+      "One blue, used for dimension lines, link underlines, markers, focus, and a single solid action cell.",
+      "Facts in ruled cells with a small field label over a heavier value.",
+      "Square corners, no shadows, no gradients, no imagery.",
+      "Light and dark themes from the same tokens through `light-dark()`."
+    ],
+    "rules": [
+      { "name": "The One Blue Rule", "body": "Dimension blue is the only hue on the sheet. It appears as thin line work and link colour everywhere, and as a solid fill on exactly one action per view. A second accent or a second filled blue block is a different drawing.", "section": "colors" },
+      { "name": "The Inverted Sheet Rule", "body": "The dark theme swaps sheet and ink and lightens the line blue; nothing else changes. No dark-only surfaces, glows or borders.", "section": "colors" },
+      { "name": "The One Hand Rule", "body": "All lettering is Archivo. Hierarchy comes from size and from three weights (500, 600, 700 over a 400 body), never from a second family, uppercase or added tracking. Mono is for code; mono on labels would be costume.", "section": "typography" },
+      { "name": "The Field Label Rule", "body": "The small grey label names a data cell: a title-block field, a record-head field, a contact channel. It never sits above a heading or a section as a kicker.", "section": "typography" },
+      { "name": "The Lettering Exception Rule", "body": "The home hero statement runs to 9.375rem, above the usual 6rem display ceiling, because the approved first viewport sets it there. It is the only text on the site allowed past 4.25rem.", "section": "typography" },
+      { "name": "The Flat Sheet Rule", "body": "A drawing has no depth. If something needs to stand out, give it a rule, a heavier weight or the blue, never a shadow.", "section": "elevation" },
+      { "name": "The Two Weights Rule", "body": "2px ink for sheet edges and block outlines, 1px ink for divisions inside a block. Blue lines are 2px. No hairlines in grey, no dashed or doubled borders as decoration.", "section": "shapes" }
+    ],
+    "dos": [
+      "Do put facts in ruled cells: a field label (0.8125rem, 500, grey) over a value (600), inside a 2px outline with 1px divisions.",
+      "Do keep every corner square and every surface flat.",
+      "Do use the blue for line work and links freely, and as a solid fill for one action per view.",
+      "Do set all text in Archivo and build hierarchy from size and the 500 / 600 / 700 weights.",
+      "Do hold running text to a 40rem to 42rem measure, even inside a full-width block.",
+      "Do build both themes from the same tokens; check the line blue and grey text on both grounds.",
+      "Do keep targets at 44px or more and the 2px focus outline visible on everything focusable."
+    ],
+    "donts": [
+      "Don't bring back the cream ground, serif display type or rust accent this world replaced.",
+      "Don't drift toward the dark neon developer portfolio: no glows, gradients, terminal styling or mono body text.",
+      "Don't add a second accent colour or a second filled blue block on the same view.",
+      "Don't use mono, uppercase or wide tracking for labels.",
+      "Don't put a small label above a heading as a kicker; labels name data cells only.",
+      "Don't add shadows, rounded corners, cards or background bands to separate content.",
+      "Don't set any text above 4.25rem other than the home hero statement.",
+      "Don't number the records; they share a date and a derived number would shift.",
+      "Don't add motion beyond the single load moment and short state transitions."
+    ]
+  }
+}

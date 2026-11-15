@@ -1,0 +1,98 @@
+---
+import '@fontsource-variable/archivo';
+import '../styles/global.css';
+
+const { title, description, type = 'website' } = Astro.props;
+const name = 'Kameshwaran Ravichandran';
+const pageTitle = title ? `${title} · ${name}` : `${name} · Frontend platform engineer`;
+const url = new URL(Astro.url.pathname, Astro.site);
+const year = new Date().getFullYear();
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={url} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={url} />
+    <meta property="og:type" content={type} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="alternate" type="application/rss+xml" title={`${name} · Writing`} href="/rss.xml" />
+    <script is:inline>
+      // Before first paint, so a saved theme never flashes the other one.
+      document.documentElement.classList.add('js');
+      try {
+        const t = localStorage.getItem('theme');
+        if (t) document.documentElement.dataset.theme = t;
+      } catch {}
+    </script>
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+    <header class="site-header">
+      <a class="site-name" href="/">{name}</a>
+      <nav aria-label="Main" id="site-nav">
+        <a href="/#experience">Experience</a>
+        <a href="/#writing">Writing</a>
+        <a href="/#contact">Contact</a>
+      </nav>
+      <div class="header-actions">
+        <button type="button" id="theme-toggle" hidden>
+          <svg class="moon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4 8.5 8.5 0 1 0 20 14.5Z" /></svg>
+          <svg class="sun" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" aria-hidden="true"><circle cx="12" cy="12" r="4" /><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9 7 7M17 17l2.1 2.1M4.9 19.1 7 17M17 7l2.1-2.1" /></svg>
+        </button>
+        <button type="button" id="menu-toggle" aria-controls="site-nav" hidden>
+          <svg class="bars" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18" /></svg>
+          <svg class="x" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" aria-hidden="true"><path d="M5 5l14 14M19 5 5 19" /></svg>
+        </button>
+      </div>
+    </header>
+    <main id="main">
+      <slot />
+    </main>
+    <footer class="site-footer">
+      <p>
+        Made with
+        AI 
+        © {year}
+      </p>
+    </footer>
+    <script is:inline>
+      {
+        const btn = document.getElementById('theme-toggle');
+        const root = document.documentElement;
+        const current = () =>
+          root.dataset.theme || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        const label = () => btn.setAttribute('aria-label', current() === 'dark' ? 'Switch to light theme' : 'Switch to dark theme');
+        btn.hidden = false;
+        label();
+        btn.addEventListener('click', () => {
+          root.dataset.theme = current() === 'dark' ? 'light' : 'dark';
+          try {
+            localStorage.setItem('theme', root.dataset.theme);
+          } catch {}
+          label();
+        });
+
+        // Phone menu: without JavaScript the links simply stay visible.
+        const menu = document.getElementById('menu-toggle');
+        const nav = document.getElementById('site-nav');
+        const setMenu = (open) => {
+          menu.setAttribute('aria-expanded', open);
+          menu.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+          nav.classList.toggle('open', open);
+        };
+        menu.hidden = false;
+        setMenu(false);
+        menu.addEventListener('click', () => setMenu(menu.getAttribute('aria-expanded') !== 'true'));
+        nav.addEventListener('click', (e) => e.target.closest('a') && setMenu(false));
+        addEventListener('keydown', (e) => e.key === 'Escape' && setMenu(false));
+      }
+    </script>
+  </body>
+</html>
