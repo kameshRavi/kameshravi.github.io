@@ -208,16 +208,17 @@ section, article { padding-top: clamp(4rem, 9vw, 7rem); }
   /* With JavaScript the links fold behind the menu button */
   .js .site-header nav { display: none; }
   /* The open menu is an inverted panel, edge to edge, so it reads apart from the page */
+  /* It overlays the page (absolute under the sticky header) so opening it moves nothing */
   .js .site-header nav.open {
     display: flex; flex-direction: column; align-items: stretch;
-    flex-basis: calc(100% + 2 * var(--gut)); margin: 0 calc(-1 * var(--gut)); padding: 0.25rem var(--gut) 0.75rem;
+    position: absolute; top: 100%; left: calc(-1 * var(--gut)); right: calc(-1 * var(--gut));
+    margin: 0; padding: 0.25rem var(--gut) 0.75rem;
     background: var(--ink); color: var(--sheet);
   }
   .js .site-header nav.open a { min-height: 52px; border-bottom: 1px solid var(--mid); font-size: 1.25rem; font-weight: 600; }
   .js .site-header nav.open a:last-child { border-bottom: 0; }
   .js .site-header nav.open a:hover { color: inherit; text-decoration: underline; }
   .js .site-header nav.open a:focus-visible { outline-color: var(--sheet); outline-offset: -3px; }
-  .site-header:has(nav.open) { border-bottom: 0; }
 }
 
 @media print {

@@ -220,16 +220,20 @@ One filled action per view, built as a cell of the title block rather than a fre
 Ink text with a thin blue underline (0.08em, offset 0.18em); the text turns blue on hover. Focus is a 2px blue outline offset 3px, on every focusable element.
 
 ### Chips
-- **Draft marker:** a small outlined, square label (0.8125rem, 600) in the current text colour beside a record title. Outline only, never filled.
+- **Record markers:** small outlined, square labels (0.8125rem, 600) in the current text colour beside a record title: "Personal" for a personal project and "Draft" for an unpublished one. Outline only, never filled. On the article page the same facts appear as Type and Status cells in the record head.
 
 ### Cards / Containers
 There are no cards. The container is the ruled block.
 - **Title block / record head / contact block:** a grid of sheet-coloured cells divided by 1px ink lines inside a 2px ink outline. Each cell holds a field label over a value; padding 0.9rem 1.1rem 1rem.
 - **Register (writing index):** a 2px outlined list; each row is a title and summary beside a grey stack list, divided by 1px rules, padding 1.6rem 1.5rem. The whole row is the link and fills with the tint on hover. Rows are unnumbered.
-- **Experience list:** a 2px top rule, then rows of a 600-weight date column and a text column, each closed by a 1px rule.
+- **Experience and Education lists:** a 2px top rule, then rows of a 600-weight date column and a text column, each closed by a 1px rule. Education is its own section after Experience, in the same form.
 
 ### Navigation
-A single header row, 4.5rem tall, closed by the 2px sheet edge. The name sits left at 600; three text links and the theme toggle sit right at 500, 1rem, no underline, turning blue on hover. The toggle is a 22px stroked icon showing the theme it switches to. On narrow screens the row wraps; there is no menu button. The footer mirrors it: a 2px top rule and one grey line of text.
+A single header row, 4.5rem tall, closed by the 2px sheet edge. It is sticky: it stays at the top on a sheet-coloured ground while the page scrolls beneath it, and anchor jumps stop 5.5rem down so headings clear it. The name sits left at 600; three text links (Experience, Writing, Contact) sit right at 500, 1rem, no underline, turning blue on hover, followed by the theme toggle. The toggle is a 22px stroked icon showing the theme it switches to: a moon in light, a sun in dark. With no saved choice the site follows the device theme.
+
+- **Phone menu (44rem and below):** the links fold behind a 24px stroked menu icon that becomes a close icon when open. The open menu is an inverted panel (ink ground, sheet text) that runs edge to edge and overlays the page directly under the header, so opening it moves nothing. Links are 52px tall at 1.25rem/600, divided by 1px grey rules. A link tap or Escape closes it. Without JavaScript the button is absent and the links stay visible in a second row.
+- **Footer:** a 2px top rule and one centred grey line, "Made with AI © year", with the year set at build time.
+- **Favicon:** a square of dimension blue with a white geometric K. Square corners, no second colour.
 
 ### Dimension Line (signature)
 A career or sequence drawn as one blue line with a tick and a bold year at each station, and the name and role beneath. Columns are proportioned to the spans they represent. It turns vertical on narrow screens.

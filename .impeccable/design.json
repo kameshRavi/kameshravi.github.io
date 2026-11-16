@@ -79,7 +79,7 @@
       "name": "Header Navigation",
       "kind": "nav",
       "refersTo": "nav-link",
-      "description": "One header row closed by the 2px sheet edge; text links turn blue on hover.",
+      "description": "One sticky header row closed by the 2px sheet edge; text links turn blue on hover. At 44rem and below the links fold behind a menu icon and open as an inverted, edge-to-edge panel that overlays the page.",
       "html": "<header class=\"ds-header\"><a class=\"ds-name\" href=\"#\">Kameshwaran Ravichandran</a><nav><a href=\"#\">Experience</a><a href=\"#\">Writing</a><a href=\"#\">Contact</a></nav></header>",
       "css": ".ds-header { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 0 1.5rem; min-height: 4.5rem; border-bottom: 2px solid var(--ink); font-family: var(--sans); color: var(--ink); } .ds-header a { color: inherit; text-decoration: none; min-height: 44px; display: inline-flex; align-items: center; font-size: 1rem; font-weight: 500; transition: color 0.15s; } .ds-header .ds-name { font-size: 1.0625rem; font-weight: 600; } .ds-header nav { display: flex; flex-wrap: wrap; gap: 0 1.75rem; } .ds-header nav a:hover { color: var(--line); } .ds-header a:focus-visible { outline: 2px solid var(--line); outline-offset: 3px; }"
     },
